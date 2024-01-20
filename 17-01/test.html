@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Educative's Calculator</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <h1 class="title">Calculator</h1>
+        <div class="one-nine">
+            <div class="input-div">
+                <p class="input"></p>
+            </div>
+            <button class="num-btn clear">C</button>
+            <button class="num-btn equal">=</button>
+            
+            
+            <button class="num-btn zero">0</button>
+            <button class="num-btn plus">+</button>
+
+            <button class="num-btn seven">7</button>
+            <button class="num-btn eight">8</button>
+            <button class="num-btn nine">9</button>
+            <button class="num-btn minus">-</button>
+
+            <button class="num-btn four">4</button>
+            <button class="num-btn five">5</button>
+            <button class="num-btn six">6</button>
+            <button class="num-btn divide">/</button>
+
+            <button class="num-btn one">1</button>
+            <button class="num-btn two">2</button>
+            <button class="num-btn three">3</button>
+            <button class="num-btn multiply">*</button>
+        </div>
+
+        <div class="result">
+            <h2>Result = </h2>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var expression = '';
+
+            $('.clear').click(function(){
+                $('.input').text('');
+                expression = '';
+                result = '';
+                $('h2').text("Result = " + result);
+            });
+            
+            $('.equal').click(function(){
+                
+                try {
+                    
+                    var result = eval(expression);
+                    $('h2').text("Result = " + result);
+                    alert(expression = $('.input').text()+ "the result of these operation will appear " );
+                } catch (error) {
+                    alert('Invalid expression');
+                }
+            });
+
+            $('.multiply, .divide, .minus, .plus').click(function(){
+                expression += $(this).text();
+                $('.input').text(expression);
+            });
+
+            $('.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero').click(function(){
+                expression += $(this).text();
+                $('.input').text(expression);
+            });
+        
+        });
+        
+    </script>
+</body>
+</html>
